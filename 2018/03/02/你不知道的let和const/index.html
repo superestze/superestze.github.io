@@ -7,17 +7,17 @@
   
   <title>你不知道的let和const | superestze的书阁</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="你不知道的let 和 const基本用法 1234&amp;#123;    let a=10;    var b=1;&amp;#125; let 与 var 相比， 优点：  不存在变量提升 1234567// varconsole.log(a); // undefinevar a=2// letconsole.log(a); // errorlet a=2 由于var 存在变量提升，写法类似如下，经常会造成">
+  <meta name="description" content="你不知道的let 和 const基本用法 1234&amp;#123;    let a=10;    var b=1;  // 尽量避免使用var&amp;#125; let 与 var 相比， 优点：  不存在变量提升 1234567// varconsole.log(a); // undefinevar a=2// letconsole.log(a); // errorlet a=2 由于var 存在变量提">
 <meta property="og:type" content="article">
 <meta property="og:title" content="你不知道的let和const">
 <meta property="og:url" content="http://yoursite.com/2018/03/02/你不知道的let和const/index.html">
 <meta property="og:site_name" content="superestze的书阁">
-<meta property="og:description" content="你不知道的let 和 const基本用法 1234&amp;#123;    let a=10;    var b=1;&amp;#125; let 与 var 相比， 优点：  不存在变量提升 1234567// varconsole.log(a); // undefinevar a=2// letconsole.log(a); // errorlet a=2 由于var 存在变量提升，写法类似如下，经常会造成">
+<meta property="og:description" content="你不知道的let 和 const基本用法 1234&amp;#123;    let a=10;    var b=1;  // 尽量避免使用var&amp;#125; let 与 var 相比， 优点：  不存在变量提升 1234567// varconsole.log(a); // undefinevar a=2// letconsole.log(a); // errorlet a=2 由于var 存在变量提">
 <meta property="og:locale" content="zh-hans">
-<meta property="og:updated_time" content="2018-07-02T07:19:52.931Z">
+<meta property="og:updated_time" content="2018-07-02T08:05:39.259Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="你不知道的let和const">
-<meta name="twitter:description" content="你不知道的let 和 const基本用法 1234&amp;#123;    let a=10;    var b=1;&amp;#125; let 与 var 相比， 优点：  不存在变量提升 1234567// varconsole.log(a); // undefinevar a=2// letconsole.log(a); // errorlet a=2 由于var 存在变量提升，写法类似如下，经常会造成">
+<meta name="twitter:description" content="你不知道的let 和 const基本用法 1234&amp;#123;    let a=10;    var b=1;  // 尽量避免使用var&amp;#125; let 与 var 相比， 优点：  不存在变量提升 1234567// varconsole.log(a); // undefinevar a=2// letconsole.log(a); // errorlet a=2 由于var 存在变量提">
   
     <link rel="alternate" href="/atom.xml" title="superestze的书阁" type="application/atom+xml">
   
@@ -87,7 +87,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h5 id="你不知道的let-和-const"><a href="#你不知道的let-和-const" class="headerlink" title="你不知道的let 和 const"></a>你不知道的let 和 const</h5><p>基本用法</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="keyword">let</span> a=<span class="number">10</span>;</span><br><span class="line">    <span class="keyword">var</span> b=<span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="keyword">let</span> a=<span class="number">10</span>;</span><br><span class="line">    <span class="keyword">var</span> b=<span class="number">1</span>;  <span class="comment">// 尽量避免使用var</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>let 与 var 相比， 优点：</p>
 <ol>
 <li><p>不存在变量提升</p>

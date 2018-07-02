@@ -7,17 +7,17 @@
   
   <title>es6字符串拓展 | superestze的书阁</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="es6字符串拓展 字符串可以直接遍历啦 123for(let codepoint of &apos;foo&apos;)&amp;#123;    console.log(codepoint); // f,o,o&amp;#125;  includes(), startsWidth(), endsWidth() 1234const s=&apos;hello world&apos;;s.startWidth(&apos;hello&apos;) // trues.ends">
+  <meta name="description" content="es6字符串拓展 字符串可以直接遍历啦 123for(let codepoint of &apos;foo&apos;)&amp;#123;    console.log(codepoint); // f,o,o&amp;#125;  includes(), startsWidth(), endsWidth() 12345const s=&apos;hello world&apos;;s.startWidth(&apos;hello&apos;) // trues.end">
 <meta property="og:type" content="article">
 <meta property="og:title" content="es6字符串拓展">
 <meta property="og:url" content="http://yoursite.com/2018/04/02/es6字符串拓展/index.html">
 <meta property="og:site_name" content="superestze的书阁">
-<meta property="og:description" content="es6字符串拓展 字符串可以直接遍历啦 123for(let codepoint of &apos;foo&apos;)&amp;#123;    console.log(codepoint); // f,o,o&amp;#125;  includes(), startsWidth(), endsWidth() 1234const s=&apos;hello world&apos;;s.startWidth(&apos;hello&apos;) // trues.ends">
+<meta property="og:description" content="es6字符串拓展 字符串可以直接遍历啦 123for(let codepoint of &apos;foo&apos;)&amp;#123;    console.log(codepoint); // f,o,o&amp;#125;  includes(), startsWidth(), endsWidth() 12345const s=&apos;hello world&apos;;s.startWidth(&apos;hello&apos;) // trues.end">
 <meta property="og:locale" content="zh-hans">
-<meta property="og:updated_time" content="2018-07-02T08:00:39.828Z">
+<meta property="og:updated_time" content="2018-07-02T08:04:59.624Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="es6字符串拓展">
-<meta name="twitter:description" content="es6字符串拓展 字符串可以直接遍历啦 123for(let codepoint of &apos;foo&apos;)&amp;#123;    console.log(codepoint); // f,o,o&amp;#125;  includes(), startsWidth(), endsWidth() 1234const s=&apos;hello world&apos;;s.startWidth(&apos;hello&apos;) // trues.ends">
+<meta name="twitter:description" content="es6字符串拓展 字符串可以直接遍历啦 123for(let codepoint of &apos;foo&apos;)&amp;#123;    console.log(codepoint); // f,o,o&amp;#125;  includes(), startsWidth(), endsWidth() 12345const s=&apos;hello world&apos;;s.startWidth(&apos;hello&apos;) // trues.end">
   
     <link rel="alternate" href="/atom.xml" title="superestze的书阁" type="application/atom+xml">
   
@@ -91,7 +91,7 @@
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> codepoint <span class="keyword">of</span> <span class="string">'foo'</span>)&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(codepoint); <span class="comment">// f,o,o</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>includes(), startsWidth(), endsWidth()</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> s=<span class="string">'hello world'</span>;</span><br><span class="line">s.startWidth(<span class="string">'hello'</span>) <span class="comment">// true</span></span><br><span class="line">s.endsWidth(<span class="string">'d'</span>) <span class="comment">// true</span></span><br><span class="line">s.includes(<span class="string">'o'</span>)  <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> s=<span class="string">'hello world'</span>;</span><br><span class="line">s.startWidth(<span class="string">'hello'</span>) <span class="comment">// true</span></span><br><span class="line">s.endsWidth(<span class="string">'d'</span>) <span class="comment">// true</span></span><br><span class="line">s.includes(<span class="string">'o'</span>)  <span class="comment">// true</span></span><br><span class="line">s.includes(<span class="string">'1'</span>)  <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>repeat</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">'x'</span>.repeat(<span class="number">3</span>) <span class="comment">// xxx</span></span><br></pre></td></tr></table></figure>
