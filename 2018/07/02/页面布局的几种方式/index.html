@@ -7,13 +7,17 @@
   
   <title>superestze的书阁</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
+  <meta name="description" content="页面布局的几种方式  在工作中， 经常需要使用到中间两栏布局或者左右布局， 对最常见的五种布局方式（float, absolute, flex, table, 栅格布局）等研究以后， 发现float和absolute是比较常用和有效的布局方式。  float布局 1234567891011121314151617181920212223242526272829303132333435363738">
+<meta property="og:type" content="article">
 <meta property="og:title" content="superestze的书阁">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta property="og:url" content="http://yoursite.com/2018/07/02/页面布局的几种方式/index.html">
 <meta property="og:site_name" content="superestze的书阁">
+<meta property="og:description" content="页面布局的几种方式  在工作中， 经常需要使用到中间两栏布局或者左右布局， 对最常见的五种布局方式（float, absolute, flex, table, 栅格布局）等研究以后， 发现float和absolute是比较常用和有效的布局方式。  float布局 1234567891011121314151617181920212223242526272829303132333435363738">
 <meta property="og:locale" content="zh-hans">
+<meta property="og:updated_time" content="2018-07-02T04:56:31.527Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="superestze的书阁">
+<meta name="twitter:description" content="页面布局的几种方式  在工作中， 经常需要使用到中间两栏布局或者左右布局， 对最常见的五种布局方式（float, absolute, flex, table, 栅格布局）等研究以后， 发现float和absolute是比较常用和有效的布局方式。  float布局 1234567891011121314151617181920212223242526272829303132333435363738">
   
     <link rel="alternate" href="/atom.xml" title="superestze的书阁" type="application/atom+xml">
   
@@ -60,9 +64,7 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-页面布局的几种方式" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-页面布局的几种方式" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/07/02/页面布局的几种方式/" class="article-date">
   <time datetime="2018-07-02T04:42:30.691Z" itemprop="datePublished">2018-07-02</time>
@@ -100,69 +102,19 @@
     </footer>
   </div>
   
-</article>
-
-
+    
+<nav id="article-nav">
   
-    <article id="post-聊一聊js的继承" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/07/02/聊一聊js的继承/" class="article-date">
-  <time datetime="2018-07-02T04:23:02.112Z" itemprop="datePublished">2018-07-02</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="聊一聊js的继承"><a href="#聊一聊js的继承" class="headerlink" title="聊一聊js的继承"></a>聊一聊js的继承</h4><p>在js中， 很多地方需要使用到继承， 废话少说， 今天来聊一聊js几种继承方式的优缺点</p>
-<ul>
-<li><p>构造函数继承</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Parent</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">let</span> arr=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Child</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    Parent.call(<span class="keyword">this</span>);   <span class="comment">// this === Parent1</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>缺点： Parent 上的原型链不能被子类继承</li>
-</ul>
-</li>
-<li><p>原型链继承</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Parent</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">let</span> arr=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Child</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    Parent.call(<span class="keyword">this</span>);   <span class="comment">// this === Parent1</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Child.prototype = <span class="keyword">new</span> Parent();</span><br></pre></td></tr></table></figure>
-<p>缺点：</p>
-<ul>
-<li>如果父类中的属性值改变（例如数组）， 所有子类的实例中对应的都会改变</li>
-</ul>
-</li>
-<li><p>组合继承</p>
-  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Parent</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">let</span> arr=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>]</span><br><span class="line">&#125;</span><br><span class="line">  </span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Child</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      Parent.call(<span class="keyword">this</span>);</span><br><span class="line">&#125;</span><br><span class="line">Child.protype = <span class="keyword">new</span> Parent();</span><br></pre></td></tr></table></figure>
-<p>缺点：</p>
-<ul>
-<li><p>父类的构造函数会被指向两次</p>
-</li>
-<li><p>child = new Child() ; </p>
-<p>child instanceof Child // true</p>
-<p>child instanceof Parent // true</p>
-<p>不能区分实例到底是父类的实例， 还是子类的实例</p>
-</li>
-</ul>
-</li>
-<li><p>组合继承的优化（推荐使用这种方式）</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Parent</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">let</span> arr=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>]</span><br><span class="line">&#125;</span><br><span class="line">  </span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Child</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      Parent.call(<span class="keyword">this</span>);</span><br><span class="line">&#125;</span><br><span class="line">Child.prototype = <span class="built_in">Object</span>.create(Parent.prototype); <span class="comment">// 把显示原型放在子类的显示原型上</span></span><br><span class="line">child.prototype.constructor = Child()  <span class="comment">// 构造函数等于该函数本身</span></span><br></pre></td></tr></table></figure>
-</li>
-</ul>
+  
+    <a href="/2018/07/02/聊一聊js的继承/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
 
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/02/聊一聊js的继承/" data-id="cjj3rx69n0000fsma6ntutkbv" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
   
 </article>
-
-
-  
-
 
 </section>
         
