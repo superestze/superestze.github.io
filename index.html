@@ -62,6 +62,89 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-es6函数扩展" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/07/10/es6函数扩展/" class="article-date">
+  <time datetime="2018-07-10T02:15:13.000Z" itemprop="datePublished">2018-07-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/10/es6函数扩展/">es6函数扩展</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="es6函数扩展"><a href="#es6函数扩展" class="headerlink" title="es6函数扩展"></a>es6函数扩展</h4><ol>
+<li><p>函数参数指定默认值</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// es5的写法</span></span><br><span class="line"><span class="function"><span class="keyword">function</span>(<span class="params">x,y</span>)</span>&#123;</span><br><span class="line">    y=y||<span class="string">'world'</span>;</span><br><span class="line">    <span class="built_in">console</span>.log(x,y);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// es6的写法</span></span><br><span class="line"><span class="function"><span class="keyword">function</span>(<span class="params">x,y=<span class="string">'world'</span></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(x,y);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<ol start="2">
+<li><p>参数解构</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">&#123;x, y=<span class="number">5</span>&#125;</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(x,y)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">foo() <span class="comment">// undefine 5</span></span><br><span class="line">foo(&#123;<span class="attr">x</span>:<span class="number">1</span>&#125;) <span class="comment">// 1,5;</span></span><br><span class="line">foo(&#123;<span class="attr">x</span>:<span class="number">1</span>, <span class="attr">y</span>:<span class="number">2</span>&#125;) <span class="comment">// 1,2 </span></span><br><span class="line">foo() <span class="comment">// error</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<ol start="3">
+<li><p>函数的属性</p>
+<ul>
+<li><p>length</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params">a</span>)</span>&#123;&#125;).length <span class="comment">//1</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// length的属性返回值等于函数的参数个数减去指定的默认值的参数</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ol>
+<ul>
+<li><p>name </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">let f=function()&#123;&#125;;</span><br><span class="line">//es5</span><br><span class="line">f.name // &apos;&apos;</span><br><span class="line">//es6</span><br><span class="line">f.name //&apos;f&apos;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ol start="4">
+<li><p>作用域</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 一旦设定了参数的默认值， 函数声明进行初始化的时候， 参数会形成独立的作用域， 等到初始化结束， 这个作用域就会消失</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> x=<span class="number">1</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params">x, y=x</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(y)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">f1(<span class="number">2</span>)  <span class="comment">//2  默认值变量x指向第一个参数x, 而不是全局的x</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> x=<span class="number">1</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f2</span>(<span class="params">y=x</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">let</span> x=<span class="number">2</span>;</span><br><span class="line">    <span class="built_in">console</span>.log(y)</span><br><span class="line">&#125;</span><br><span class="line">f2()  <span class="comment">// 1</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<ol start="5">
+<li><p>rest参数, 不需要指定参数的个数</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params">...values</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">let</span> sum=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> val <span class="keyword">of</span> values)&#123;</span><br><span class="line">        sum +=val;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> sum;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<ol start="6">
+<li><p>箭头函数</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> f=<span class="function"><span class="params">()</span>=&gt;</span><span class="number">5</span>;</span><br><span class="line"><span class="comment">// 等价于</span></span><br><span class="line"><span class="keyword">var</span> f=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">5</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<ol start="7">
+<li><p>尾递归</p>
+<p>了解尾递归前， 首先要了解尾调用：某个函数的最后一步是调用另外一个函数</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params">x</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> g(x)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>如果函数尾调用自身， 就是尾递归， 递归是非常耗内存，因为需要同时保存成千上百个调用帧， 但是对于尾递归而言， 只存在一个调用帧， 所以不会发生溢出栈的错误</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">factorial</span>(<span class="params">n</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(n===<span class="number">1</span>) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">return</span> n*factorial(n<span class="number">-1</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">f(<span class="number">5</span>)  <span class="comment">// 120;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 尾递归</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">factorial2</span>(<span class="params">n, total</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(n==<span class="number">1</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> total</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> factorial2(n<span class="number">-1</span>, n*total);  <span class="comment">//  调用自身</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/07/10/es6函数扩展/" data-id="cjjf56z7b0000m4masl94qiyj" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-页面布局的几种方式" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/07/02/页面布局的几种方式/" class="article-date">
@@ -104,7 +187,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/02/页面布局的几种方式/" data-id="cjj42n3pd0005e8map2mrog8j" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/02/页面布局的几种方式/" data-id="cjjf56z7y0005m4mara591fm4" class="article-share-link">Share</a>
       
       
     </footer>
@@ -169,7 +252,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/05/06/变量的解构总结/" data-id="cjj42n3ok0003e8matpsgp9tv" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/05/06/变量的解构总结/" data-id="cjjf56z7j0003m4mamxvjgpbu" class="article-share-link">Share</a>
       
       
     </footer>
@@ -219,7 +302,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/04/02/es6字符串拓展/" data-id="cjj42n3p60004e8mahdooaukj" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/04/02/es6字符串拓展/" data-id="cjjf56z7y0006m4madkoh9i43" class="article-share-link">Share</a>
       
       
     </footer>
@@ -278,7 +361,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/03/02/你不知道的let和const/" data-id="cjj42n3ms0000e8ma5cu38l8s" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/03/02/你不知道的let和const/" data-id="cjjf56z7j0001m4mazutjobs0" class="article-share-link">Share</a>
       
       
     </footer>
@@ -348,7 +431,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/01/02/聊一聊js的几种继承方式/" data-id="cjj42n3ne0002e8mahvyqc6a7" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/01/02/聊一聊js的几种继承方式/" data-id="cjjf56z7j0004m4madg1s64kz" class="article-share-link">Share</a>
       
       
     </footer>
@@ -392,7 +475,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/10/20/敏捷开发科普/" data-id="cjj42n3n40001e8maq756oofp" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/10/20/敏捷开发科普/" data-id="cjjf56z7j0002m4ma97h8nhgp" class="article-share-link">Share</a>
       
       
     </footer>
@@ -433,6 +516,10 @@
       <ul>
         
           <li>
+            <a href="/2018/07/10/es6函数扩展/">es6函数扩展</a>
+          </li>
+        
+          <li>
             <a href="/2018/07/02/页面布局的几种方式/">页面布局的几种方式</a>
           </li>
         
@@ -446,10 +533,6 @@
         
           <li>
             <a href="/2018/03/02/你不知道的let和const/">你不知道的let和const</a>
-          </li>
-        
-          <li>
-            <a href="/2018/01/02/聊一聊js的几种继承方式/">聊一聊js的几种继承方式</a>
           </li>
         
       </ul>
