@@ -62,6 +62,51 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-聊一聊-intro-js" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/07/21/聊一聊-intro-js/" class="article-date">
+  <time datetime="2018-07-21T05:29:28.000Z" itemprop="datePublished">2018-07-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/21/聊一聊-intro-js/">聊一聊 intro.js</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="聊一聊intro-js"><a href="#聊一聊intro-js" class="headerlink" title="聊一聊intro.js"></a>聊一聊intro.js</h4><p>很多网站或者app， 我们第一次访问或者登陆的时候， 往往会看到好看友好的新手导航页面。如果这个功能我们自己来做， 首先， 首先， 需要有一个弹框， 其次， 获取DOM的位置来确定弹框的显示顺序， 然后要知道新手导航有几步，等等， 想做完美， 不是一件容易的事情。 然而， 我们可以站在居然的肩膀上， 这个巨人就是intro.js</p>
+<p>废话不多说了， 进入正题吧！</p>
+<p>在三大框架中， 我们选择angular2+ (intro.js有angular（1.x版本）)</p>
+<p>首先， 需要安装intro.js</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save intro.js @types/intro.js</span><br></pre></td></tr></table></figure>
+<p>安装完成后， 需要引入angular</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">// 在angular-cli.json文件中加入</span><br><span class="line">···</span><br><span class="line">styles：[</span><br><span class="line">    "../node_modules/intro.js/minified/introjs.min.css".</span><br><span class="line">    //还可以引入主题的css样式</span><br><span class="line">]</span><br><span class="line">···</span><br><span class="line"></span><br><span class="line"> scripts：[</span><br><span class="line">     "/node_modules/intro.js/minified/intro.min.js".</span><br><span class="line"> ]</span><br><span class="line">···</span><br></pre></td></tr></table></figure>
+<p>最后， 把intro.js导入文件中，</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// intro.component.ts </span></span><br><span class="line"><span class="keyword">import</span> * <span class="keyword">as</span> intro <span class="keyword">from</span> intro.js </span><br><span class="line"></span><br><span class="line">···</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">const</span> intro = intro.introJs()  </span><br><span class="line">    <span class="comment">// const intro = intro.introJs('#container')   加参数会在参数的DOM上显示新手导航</span></span><br><span class="line">    intro.setOptions(&#123;</span><br><span class="line">    skipLabel：<span class="string">'跳过'</span>,</span><br><span class="line">    doneLabel:<span class="string">'完成'</span>,</span><br><span class="line">    prevLabel:<span class="string">'上一步'</span>,</span><br><span class="line">    nextLabel:<span class="string">'下一步'</span>，</span><br><span class="line">    steps:  [&#123;</span><br><span class="line">                 element: <span class="string">'#step1'</span>,  <span class="comment">// 在对应的元素上加上 id="#step1"</span></span><br><span class="line">                  intro: <span class="string">'Step one description'</span>, <span class="comment">// 导航显示的内容， 可以加图片</span></span><br><span class="line">                  position: <span class="string">'bottom'</span>  <span class="comment">// 导航现实的位置</span></span><br><span class="line">                &#125;,</span><br><span class="line">                &#123;</span><br><span class="line">                   element: <span class="string">'#step2'</span>,</span><br><span class="line">                   intro: <span class="string">'Step &lt;i&gt;two&lt;/i&gt; description'</span>,</span><br><span class="line">                  position: <span class="string">'bottom'</span></span><br><span class="line">                &#125;,</span><br><span class="line">                &#123;</span><br><span class="line">                  element: <span class="string">'#step3'</span>,</span><br><span class="line">                  intro: <span class="string">'Step &lt;span style="color: green;"&gt;three&lt;/span&gt; description'</span>,</span><br><span class="line">                  position: <span class="string">'bottom'</span></span><br><span class="line">                &#125;]</span><br><span class="line">&#125;);</span><br><span class="line">    </span><br><span class="line">    intro.onbeforechange(<span class="function"><span class="params">()</span>=&gt;</span>&#123;</span><br><span class="line">        <span class="comment">// 点击下一步导航前的回调</span></span><br><span class="line">    &#125;)</span><br><span class="line">    .onchange(<span class="function"><span class="params">()</span>=&gt;</span>&#123;</span><br><span class="line">       <span class="comment">// 点击下一步导航的回调</span></span><br><span class="line">        </span><br><span class="line">    &#125;).onafterchange(<span class="function"><span class="params">()</span>=&gt;</span>&#123;</span><br><span class="line">        <span class="comment">// 点击下一步导航后的回调</span></span><br><span class="line">        </span><br><span class="line">    &#125;)</span><br><span class="line">    intro.start()</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">···</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/07/21/聊一聊-intro-js/" data-id="cjjuzwlhd000200mam7i1v2bw" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-es6函数扩展" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/07/10/es6函数扩展/" class="article-date">
@@ -135,7 +180,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/10/es6函数扩展/" data-id="cjjf56z7b0000m4masl94qiyj" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/10/es6函数扩展/" data-id="cjjuzwlia000700ma8zw13nwo" class="article-share-link">Share</a>
       
       
     </footer>
@@ -187,7 +232,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/02/页面布局的几种方式/" data-id="cjjf56z7y0005m4mara591fm4" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/02/页面布局的几种方式/" data-id="cjjuzwli3000500maz6wiag7j" class="article-share-link">Share</a>
       
       
     </footer>
@@ -252,7 +297,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/05/06/变量的解构总结/" data-id="cjjf56z7j0003m4mamxvjgpbu" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/05/06/变量的解构总结/" data-id="cjjuzwlhg000300maow8zgmeo" class="article-share-link">Share</a>
       
       
     </footer>
@@ -302,7 +347,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/04/02/es6字符串拓展/" data-id="cjjf56z7y0006m4madkoh9i43" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/04/02/es6字符串拓展/" data-id="cjjuzwli6000600maj8xp7tnn" class="article-share-link">Share</a>
       
       
     </footer>
@@ -361,7 +406,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/03/02/你不知道的let和const/" data-id="cjjf56z7j0001m4mazutjobs0" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/03/02/你不知道的let和const/" data-id="cjjuzwlgg000000mabmvyljtd" class="article-share-link">Share</a>
       
       
     </footer>
@@ -431,7 +476,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/01/02/聊一聊js的几种继承方式/" data-id="cjjf56z7j0004m4madg1s64kz" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/01/02/聊一聊js的几种继承方式/" data-id="cjjuzwlhw000400maph1zuxcu" class="article-share-link">Share</a>
       
       
     </footer>
@@ -475,7 +520,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/10/20/敏捷开发科普/" data-id="cjjf56z7j0002m4ma97h8nhgp" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/10/20/敏捷开发科普/" data-id="cjjuzwlgv000100marrz1ya03" class="article-share-link">Share</a>
       
       
     </footer>
@@ -516,6 +561,10 @@
       <ul>
         
           <li>
+            <a href="/2018/07/21/聊一聊-intro-js/">聊一聊 intro.js</a>
+          </li>
+        
+          <li>
             <a href="/2018/07/10/es6函数扩展/">es6函数扩展</a>
           </li>
         
@@ -529,10 +578,6 @@
         
           <li>
             <a href="/2018/04/02/es6字符串拓展/">es6字符串拓展</a>
-          </li>
-        
-          <li>
-            <a href="/2018/03/02/你不知道的let和const/">你不知道的let和const</a>
           </li>
         
       </ul>
